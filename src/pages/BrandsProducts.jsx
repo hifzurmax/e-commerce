@@ -17,7 +17,7 @@ const BrandsProducts = () => {
                         :
                         <>
                             <div></div>
-                            <h2 className="text-4xl font-bold text-center">There is no avilable products on this brand right now</h2>
+                            <h2 className="text-3xl font-bold text-center">There is no avilable products on this brand right now</h2>
                             <div></div>
                         </>
                 }
