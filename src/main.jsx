@@ -10,6 +10,9 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import Home from './pages/Home';
 import AddProducts from './pages/AddProducts';
 import BrandsProducts from './pages/BrandsProducts';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import AuthProvider from './Providers/AuthProvider';
 
 
 const router = createBrowserRouter([
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/product/${params.brand}`),
         element: <BrandsProducts></BrandsProducts>,
       },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      }
     ],
   },
 ]);
@@ -38,6 +49,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )

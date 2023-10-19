@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
                     )}
                 </div>
                 <p>{description}</p>
-                <div className="card-actions justify-end">
+                <div className="space-x-1">
                     <div className="badge badge-outline">Brand: {brand}</div>
                     <div className="badge badge-outline">Price: ${price}</div>
                     <div className="badge badge-outline"><button>Details</button></div>
