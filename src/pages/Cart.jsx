@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Cart = () => {
     const cartItems = useLoaderData()
-    console.log('cart items',cartItems);
+    console.log('cart items', cartItems);
     return (
         <div className="overflow-x-auto max-w-6xl mx-auto">
             <h2 className="text-center text-lg font-semibold">Total Cart Items: {cartItems.length}</h2>
@@ -45,13 +45,16 @@ const Cart = () => {
                             <td> {cartOne.description}</td>
                             <td>${cartOne.price}</td>
                             <th>
-                                <button className="btn btn-xs">Buy Now</button>
+                                <button className="btn btn-xs">Remove</button>
                             </th>
                         </tr>)
                     }
 
                 </tbody>
             </table>
+            <div className="flex justify-center">
+                <button className="btn text-center">Parchase Now</button>
+            </div>
         </div>
     );
 };
