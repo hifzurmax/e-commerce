@@ -1,12 +1,22 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, signInWithGoogle } = useContext(AuthContext)
+    const [regError, setRegError] = useState('');
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user);
+            })
+            .then(error => console.error(error))
+    }
 
     const handleRegister = e => {
         e.preventDefault();
@@ -16,7 +26,16 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, name, photo, password);
-        // const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/;
+
+        if (!passwordRegex.test(password)) {
+            setRegError('Password should be at least 6 charrecter or longer, use atleast one capital letter and a special character')
+            return;
+        }
+
+        // Reset error and success message
+        setRegError('');
+
         createUser(email, password)
             .then(result => {
                 updateProfile(result.user, {
@@ -40,10 +59,17 @@ const Register = () => {
                                 'Your account successfully created!',
                                 'success'
                             )
-                        }
+                        } 
                     })
+                    // .then(window.location.reload(true));
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                Swal.fire(
+                    'Error!',
+                    error.message,
+                    'Error'
+                )
+            })
 
     }
 
@@ -83,11 +109,11 @@ const Register = () => {
                             <button className="btn text-white hover:text-gray-800 btn-block bg-[#F54844]">Register</button>
                         </div>
                     </form>
-                    <p className="text-center text-red-700 text-base mb-6"></p>
+                    <p className="text-center text-red-700 text-base mb-6">{regError}</p>
 
                     <div className="flex justify-center gap-3 items-center">
                         <p className="font-bold text-lg">Signin With</p>
-                        <button className="btn bg-white shadow hover:bg-blue-600 hover:text-white"> Google</button>
+                        <button onClick={handleGoogleLogin} className="btn bg-white shadow hover:bg-blue-600 text-main hover:text-white"><FaGoogle></FaGoogle> Google</button>
                     </div>
 
                     <h2 className="text-center mt-4 font-semibold">Already have an account? <Link className="text-main font-bold" to="/login">Login</Link></h2>
