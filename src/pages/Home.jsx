@@ -13,7 +13,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
             <Brands></Brands>
         </div>
     );

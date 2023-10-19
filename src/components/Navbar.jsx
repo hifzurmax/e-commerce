@@ -35,12 +35,12 @@ const Navbar = () => {
         </li>
         <li className="mr-10 font-bold">
             <NavLink
-                to="/contact"
+                to="/cart"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-main underline" : ""
                 }
             >
-                Contact
+                Cart
             </NavLink>
         </li>
 

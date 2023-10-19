@@ -13,6 +13,8 @@ import BrandsProducts from './pages/BrandsProducts';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AuthProvider from './Providers/AuthProvider';
+import Cart from './pages/Cart';
+import ProductDetails from './pages/ProductDetails';
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
         path: "/brandProducts/:brand",
         loader: ({params}) => fetch(`http://localhost:5000/product/${params.brand}`),
         element: <BrandsProducts></BrandsProducts>,
+      },
+      {
+        path: "/details/:id",
+        loader: ({params}) => fetch(`http://localhost:5000/singleproduct/${params.id}`),
+        element: <ProductDetails></ProductDetails>
+      },
+      {
+        path: "/cart",
+        loader: () => fetch('http://localhost:5000/cart'),
+        element: <Cart></Cart>
       },
       {
         path: "/login",

@@ -10,7 +10,7 @@ const Brands = () => {
             setBrands(data);
         })
     }, [])
-    console.log(brands);
+    console.log('brands',brands);
 
     return (
         <div className="grid md:grid-cols-3 lg:grid-cols-6 my-20 gap-6 max-w-6xl mx-auto">

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const BrandCard = ({ brand }) => {
-    console.log(brand);
     const { BrandName, photo } = brand;
     return (
         <Link to={`/brandProducts/${BrandName}`}>
