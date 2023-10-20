@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
                     <div className="badge badge-outline">Brand: {brand}</div>
                     <div className="badge badge-outline">Price: ${price}</div>
                     <Link to={`/details/${_id}`}><div className="badge badge-outline"><button>Details</button></div></Link>
-                    <div className="badge badge-outline"><button>Update</button></div>
+                    <Link to={`/singleproduct/${_id}`}><div className="badge badge-outline"><button>Update</button></div></Link>
                 </div>
 
             </div>

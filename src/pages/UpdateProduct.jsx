@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import Swal from 'sweetalert2'
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddProducts = () => {
+const UpdateProduct = () => {
+    const product = useLoaderData();
     const [brands, setBrands] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/brands')
@@ -11,7 +13,10 @@ const AddProducts = () => {
             })
     }, [])
 
-    const handleAddProducts = e => {
+    const { _id, image, name, price, description } = product;
+
+
+    const handleUpdateProduct = e => {
         e.preventDefault();
         const form = e.target;
         const image = form.image.value;
@@ -21,33 +26,34 @@ const AddProducts = () => {
         const price = form.Price.value;
         const rating = document.querySelector('input[name="rating-1"]:checked').value;
         const description = form.description.value;
-        const newProduct = { image, name, brand, type, price, rating, description };
+        const updatedProduct = { image, name, brand, type, price, rating, description };
 
-        fetch('http://localhost:5000/product', {
-            method: 'POST',
+        fetch(`http://localhost:5000/update/${_id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newProduct)
+            body: JSON.stringify(updatedProduct)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Product Added Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
     return (
+
         <div className="bg-[#F4F8F9] p-24">
-            <h2 className="text-3xl text-center mb-5 font-extrabold">Add a Product</h2>
-            <form onSubmit={handleAddProducts}>
+            <h2 className="text-3xl text-center mb-5 font-extrabold">Update: {name}</h2>
+            <form onSubmit={handleUpdateProduct}>
                 {/* 1st row */}
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
@@ -55,7 +61,7 @@ const AddProducts = () => {
                             <span className="label-text">Image URL</span>
                         </label>
                         <label className="">
-                            <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" />
+                            <input type="text" name="image" defaultValue={image} placeholder="Image URL" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
@@ -63,7 +69,7 @@ const AddProducts = () => {
                             <span className="label-text">Name</span>
                         </label>
                         <label>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" defaultValue={name} placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -98,16 +104,14 @@ const AddProducts = () => {
                             </select>
                         </label>
                     </div>
-
                     <div className="form-control md:ml-4 md:w-1/4">
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
                         <label>
-                            <input type="text" name="Price" placeholder="Price" className="input input-bordered w-full" />
+                            <input type="text" name="Price" defaultValue={price} placeholder="Price" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    
                     <div className="form-control md:w-1/4 md:ml-4">
                         <label className="label">
                             <span className="label-text">Rating</span>
@@ -132,15 +136,15 @@ const AddProducts = () => {
                             <span className="label-text">Short Description</span>
                         </label>
                         <label>
-                            <input type="text" name="description" placeholder="Short Description" className="input input-bordered w-full" />
+                            <input type="text" name="description" defaultValue={description} placeholder="Short Description" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Product" className="btn text-white hover:text-gray-800 btn-block bg-[#F54844]" />
+                <input type="submit" value="Update Product" className="btn text-white hover:text-gray-800 btn-block bg-[#F54844]" />
 
             </form>
         </div>
     );
 };
 
-export default AddProducts;
+export default UpdateProduct;
