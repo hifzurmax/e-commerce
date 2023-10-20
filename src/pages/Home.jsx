@@ -1,18 +1,19 @@
-import Brands from "../components/Brands";
 
+import Brands from "../components/Brands";
 const Home = () => {
     return (
         <div className="max-w-6xl mx-auto">
-            <div className="hero min-h-[60vh]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
-                <div className="hero-overlay bg-opacity-60"></div>
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+            <div className="min-h-[70vh] flex items-center pl-16" style={{ backgroundImage: 'url(https://i.ibb.co/ZNkB5KP/min-31.jpg)' }}>
+                <div>
+                    <div className='mr-6 space-y-6'>
+                        <h1 className="text-4xl text-white font-bold">Elevate your wardrobe with</h1>
+                        <h1 className="text-4xl text-white bg-main w-fit p-4 font-bold">MANGO FASION</h1>
+                        <h3 className='text-2xl text-[#737373]'>Welcome and open yourself to your truest love this year with us! With the Release Process.</h3>
+                        <button className="px-6 py-3 text-base text-white font-bold outline-double bg-main">Discover More</button>
                     </div>
                 </div>
             </div>
+
             <Brands></Brands>
         </div>
     );
