@@ -15,22 +15,22 @@ const WhyUs = () => {
 
             </div>
             <div className="grid md:grid-cols-2 my-10 gap-4 lg:grid-cols-4">
-                <div className="bg-gray-200 space-y-4 p-4">
+                <div className="bg-[#F4F4F2] space-y-4 p-4">
                     <div className="bg-main w-fit p-5 mx-auto text-center rounded-full"><FaChessQueen className="text-white text-3xl"></FaChessQueen></div>
                     <h3 className="text-xl text-center font-bold">Unparalleled Style Selection</h3>
                     <p className="text-base text-center font-semibold">Discover the latest trends and timeless classics for every occasion.</p>
                 </div>
-                <div className="bg-gray-200 space-y-4 p-4">
+                <div className="bg-[#F4F4F2] space-y-4 p-4">
                     <div className="bg-main w-fit p-5 mx-auto text-center rounded-full"><FaTags className="text-white text-3xl"></FaTags></div>
                     <h3 className="text-xl text-center font-bold">Quality Craftsmanship</h3>
                     <p className="text-base text-center font-semibold">Our garments are meticulously crafted for lasting comfort and durability.</p>
                 </div>
-                <div className="bg-gray-200 space-y-4 p-4">
+                <div className="bg-[#F4F4F2] space-y-4 p-4">
                     <div className="bg-main w-fit p-5 mx-auto text-center rounded-full"><FaStroopwafel className="text-white text-3xl"></FaStroopwafel></div>
                     <h3 className="text-xl text-center font-bold">Personalized Shopping Experience</h3>
                     <p className="text-base text-center font-semibold">Enjoy a unique, expert-guided shopping journey tailored to your style.</p>
                 </div>
-                <div className="bg-gray-200 space-y-4 p-4">
+                <div className="bg-[#F4F4F2] space-y-4 p-4">
                     <div className="bg-main w-fit p-5 mx-auto text-center rounded-full"><FaSwatchbook className="text-white text-3xl"></FaSwatchbook></div>
                     <h3 className="text-xl text-center font-bold">Sustainable Fashion Commitment</h3>
                     <p className="text-base text-center font-semibold">Embrace eco-friendly fashion with us, making a positive impact on the world.</p>
