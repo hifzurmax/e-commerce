@@ -35,22 +35,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/brandProducts/:brand",
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.brand}`),
+        loader: ({params}) => fetch(`https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/product/${params.brand}`),
         element: <BrandsProducts></BrandsProducts>,
       },
       {
         path: "/details/:id",
-        loader: ({params}) => fetch(`http://localhost:5000/singleproduct/${params.id}`),
+        loader: ({params}) => fetch(`https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/singleproduct/${params.id}`),
         element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>
       },
       {
         path: "/singleproduct/:id",
-        loader: ({params}) => fetch(`http://localhost:5000/singleproduct/${params.id}`),
+        loader: ({params}) => fetch(`https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/singleproduct/${params.id}`),
         element: <PrivateRoutes><UpdateProduct></UpdateProduct></PrivateRoutes>
       },
       {
         path: "/cart",
-        loader: () => fetch('http://localhost:5000/cart'),
+        loader: () => fetch('https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/cart'),
         element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
       },
       {

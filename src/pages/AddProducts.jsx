@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 const AddProducts = () => {
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/brands')
+        fetch('https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 setBrands(data);
@@ -23,7 +23,7 @@ const AddProducts = () => {
         const description = form.description.value;
         const newProduct = { image, name, brand, type, price, rating, description };
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -107,7 +107,7 @@ const AddProducts = () => {
                             <input type="text" name="Price" placeholder="Price" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    
+
                     <div className="form-control md:w-1/4 md:ml-4">
                         <label className="label">
                             <span className="label-text">Rating</span>

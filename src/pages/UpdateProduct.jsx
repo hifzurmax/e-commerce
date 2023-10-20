@@ -6,7 +6,7 @@ const UpdateProduct = () => {
     const product = useLoaderData();
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/brands')
+        fetch('https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 setBrands(data);
@@ -28,7 +28,7 @@ const UpdateProduct = () => {
         const description = form.description.value;
         const updatedProduct = { image, name, brand, type, price, rating, description };
 
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/update/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

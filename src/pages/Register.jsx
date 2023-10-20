@@ -44,7 +44,7 @@ const Register = () => {
                 })
                     .then(() => console.log('profile updated'))
                 const user = { name, email, password }
-                fetch('http://localhost:5000/user', {
+                fetch('https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

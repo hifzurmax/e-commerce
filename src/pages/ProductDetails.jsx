@@ -10,7 +10,7 @@ const ProductDetails = () => {
         e.preventDefault();
         const addToCart = { image, name, brand, type, price, description }
 
-        fetch('http://localhost:5000/cart', {
+        fetch('https://brand-shop-server-lap4jd2li-hifzur-rahmans-projects.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
