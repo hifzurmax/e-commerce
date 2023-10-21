@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
         <div className="max-w-6xl mx-auto">
-            <div className="min-h-[70vh] flex items-center pl-16" style={{ backgroundImage: 'url(https://i.ibb.co/ZNkB5KP/min-31.jpg)' }}>
+            <div className="min-h-[70vh] flex items-center pl-16" style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover', backgroundImage: 'url(https://i.ibb.co/ZNkB5KP/min-31.jpg)' }}>
                 <div>
                     <div className='mr-6 space-y-6'>
                         <h1 className="text-4xl text-white font-bold">Elevate your wardrobe with</h1>

@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FaCartArrowDown } from "react-icons/fa6";
 
 const ProductDetails = () => {
     const product = useLoaderData();
@@ -54,7 +55,8 @@ const ProductDetails = () => {
                             <div className="stat-value text-2xl">${price}</div>
                         </div>
                     </div>
-                    <button onClick={handleAddToCart} className="btn block mt-10 btn-primary">Add to Cart</button>
+                    
+                    <button onClick={handleAddToCart} className="flex justify-center w-full bg-main mt-6 gap-2 py-2 text-base font-bold text-white items-center"><FaCartArrowDown></FaCartArrowDown> ADD TO CART</button>
                 </div>
                
             </div>

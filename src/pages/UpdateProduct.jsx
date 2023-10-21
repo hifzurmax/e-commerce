@@ -47,6 +47,9 @@ const UpdateProduct = () => {
                     })
                 }
             })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -119,8 +122,8 @@ const UpdateProduct = () => {
                         <label>
                             <div className="rating mt-2">
                                 <input type="radio" name="rating-1" className="mask mask-star" value="1" />
-                                <input type="radio" name="rating-1" className="mask mask-star" value="2" />
-                                <input type="radio" name="rating-1" className="mask mask-star" value="3" />
+                                <input type="radio" name="rating-1"  className="mask mask-star" value="2" />
+                                <input type="radio" name="rating-1" checked className="mask mask-star" value="3" />
                                 <input type="radio" name="rating-1" className="mask mask-star" value="4" />
                                 <input type="radio" name="rating-1" className="mask mask-star" value="5" />
                             </div>

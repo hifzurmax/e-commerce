@@ -1,3 +1,4 @@
+import { FaCartArrowDown } from "react-icons/fa6";
 
 const Card = ({ card }) => {
     const { image, name, price, description } = card;
@@ -10,11 +11,16 @@ const Card = ({ card }) => {
                     <div className="badge badge-secondary bg-main">SALE</div>
                 </h2>
                 <p>{description}</p>
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Price: {price}</div>
-                    <div className="badge badge-outline">Add to Cart</div>
+                <h2 className="text-main card-title">${price}</h2>
+                <div className="rating">
+                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"  />
+                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked/>
+                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                 </div>
             </div>
+            <button className="flex justify-center w-full bg-main gap-2 py-2 text-base font-bold text-white items-center"><FaCartArrowDown></FaCartArrowDown> ADD TO CART</button>
         </div>
     );
 };
